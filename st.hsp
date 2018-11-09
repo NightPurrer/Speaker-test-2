@@ -1,0 +1,84 @@
+;File name after compilation
+#packopt name "st"
+;Pakowanie plików do exe
+#pack "basstest.wav"
+#pack "interphase.wav"
+#pack "left.wav"
+#pack "leftright.wav"
+#pack "normal.wav"
+#pack "right.wav"
+#pack "started.wav"
+title "Speaker test by TD programs V2.0 in HSP"
+mmload "started.wav",1
+mmplay 1
+await 4000
+dialog "Thanks to Nuno for help with code."
+dialog "Please use tab key to hoose option and space to activate."
+;Buttons menu.
+*mainmenu
+cls
+button "Help and informations:", *hai
+button "Left", *left
+button "right", *right
+button "Left and right", *leftright
+button "Normal channels", *nc
+button "Interphase channels", *inch
+button "Bass test", *bate
+button "Exit", *exit
+stop
+;Help
+*hai
+cls
+dialog "Select the information to display:"
+button "Changes", *changes
+button "Informations", *infos
+button "Authors", *aoa
+button "Back to main menu", *mainmenu
+stop
+*aoa
+cls
+dialog "Main author, programmist, sound designer: Dash. Coder, english correcter Nuno.
+button "Wisit dash website", *wdw
+button "Wisit the Nuno's world:", *nuwo
+button "Back to previous menu", *hai
+stop
+*wdw
+exec "http://tdprograms.tk", 16
+stop
+*nuwo
+exec "http://nuno-srv.pl", 16
+stop
+*changes
+exec "http://tdprograms.elten-net.eu/hf.html#changes", 16
+stop
+*infos
+exec "http://tdprograms.elten-net.eu/hf.html#infos", 16
+stop
+;Odniesienia do przycisków.
+*left
+mmload "left.wav",2
+mmplay 2
+stop
+*right
+mmload "right.wav", 3
+mmplay 3
+stop
+*leftright
+mmload "leftright.wav", 4
+mmplay 4
+stop
+*nc
+mmload "normal.wav", 5
+mmplay 5
+stop
+*inch
+mmload "interphase.wav", 6
+mmplay 6
+stop
+*bate
+mmload "basstest.wav", 7
+mmplay 7
+stop
+*exit
+;Funkcja do wy³¹czenia programu
+end
